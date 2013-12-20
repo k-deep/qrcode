@@ -1,3 +1,5 @@
+document.addEventListener("deviceready",function()
+{
 	cordova.plugins.barcodeScanner.scan(
 	function (result) {
 		$("#results").html("We got a barcode\n" +
@@ -8,3 +10,4 @@
 	function (error) {
 		$("#results").html("Scanning failed: " + error);
 	});
+}, false);
