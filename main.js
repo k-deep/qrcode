@@ -1,13 +1,12 @@
 document.addEventListener("deviceready",function()
 {
-	cordova.plugins.barcodeScanner.scan(
+	var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+	// 	cordova.plugins.barcodeScanner
+	scanner.scan(
 	function (result) {
-		$("#results").html("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
+		document.getElementById("results").innerHTML = "We got a barcode\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled;
 	}, 
 	function (error) {
-		$("#results").html("Scanning failed: " + error);
+		document.getElementById("results").innerHTML = "Scanning failed: " + error;
 	});
 }, false);
